@@ -1,4 +1,6 @@
 一、ubuntu12.04编译OpenJdk7的过程：
+---------------------------
+
    > 
 1、安装gcc、g++、make等
    > sudo apt-get install build-essential
@@ -61,7 +63,10 @@
 9、编译完成之后，进入编译结果的j2sdk-image目录中
    > 执行bin/java -version
    > 
+
 二、可能出现的问题：
+----------
+
    > 
 1、time is more than 10 years from present
    > 修改 jdk/src/share/classes/java/util/CurrencyData.properties中的 TR=TRL;2004-12-31-22-00-00;TRY为 TR=TRL;2014-12-31-22-00-00;TRY
@@ -75,7 +80,7 @@
 4、ERROR: echo "*** This OS is not supported:" 'uname -a'; exit 1;
    > 注释hostspot/make/linux/Makefile里面的checkOS
    > check_os_version:
-   > \#ifeq ($(DISABLE_HOTSPOT_OS_VERSION_CHECK)$(EMPTY_IF_NOT_SUPPORTED),)
+   > \#ifeq (\$(DISABLE_HOTSPOT_OS_VERSION_CHECK)\$(EMPTY_IF_NOT_SUPPORTED),)
    > \# $(QUIETLY) >&2 echo "*** This OS is not supported:" `uname -a`; exit 1;
    > \#endif
    > 
@@ -84,9 +89,12 @@
    > 
 6、使用jdk1.6作为Bootstrap JDK，用JDK1.7可能会出现问题
    > 
+
 三、参考资料
-   >
-1、《深入理解Java虚拟机》
-   >
-2、http://cduym.iteye.com/blog/1892416
+------
+> 
+   
+> 1、《深入理解Java虚拟机》
+   
+> 2、http://cduym.iteye.com/blog/1892416
 
