@@ -1,10 +1,10 @@
 一、ubuntu12.04编译OpenJdk7的过程：
 ---------------------------
 
-   > 
+> 
 1、安装gcc、g++、make等
-   > sudo apt-get install build-essential
-   > 
+> sudo apt-get install build-essential
+> 
 2、安装ant1.7以上
    > sudo apt-get install ant
    > 
