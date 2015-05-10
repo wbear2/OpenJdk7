@@ -1,100 +1,138 @@
-Ò»¡¢ubuntu12.04±àÒëOpenJdk7µÄ¹ı³Ì£º
+ä¸€ã€ubuntu12.04ç¼–è¯‘OpenJdk7çš„è¿‡ç¨‹ï¼š
 ---------------------------
 
 
-> 1¡¢°²×°gcc¡¢g++¡¢makeµÈ
+> 1ã€å®‰è£…gccã€g++ã€makeç­‰
+>> sudo apt-get install build-essential
 >
->    sudo apt-get install build-essential
+> 2ã€å®‰è£…ant1.7ä»¥ä¸Š
+>> sudo apt-get install ant
 > 
-> 2¡¢°²×°ant1.7ÒÔÉÏ
-> sudo apt-get install ant
+> 3ã€å®‰è£…XRender
+>> sudo apt-get install libxrender-dev
+>
+>> sudo apt-get install xorg-dev
 > 
-> 3¡¢°²×°XRender
-> sudo apt-get install libxrender-dev
-> sudo apt-get install xorg-dev
+> 4ã€å®‰è£…alsa
+>> sudo apt-get install libasound2-dev
 > 
-> 4¡¢°²×°alsa
-> sudo apt-get install libasound2-dev
+> 5ã€å®‰è£…Cups
+>> sudo apt-get install libcups-dev
 > 
-> 5¡¢°²×°Cups
-> sudo apt-get install libcups-dev
+> 6ã€å®‰è£…jdk6
 > 
-> 6¡¢°²×°jdk6
+> 7ã€å…¶å®ƒ
+>> sudo apt-get install gawk zip libxtst-dev libxi-dev libxt-dev
 > 
-> 7¡¢ÆäËü
-> sudo apt-get install gawk zip libxtst-dev libxi-dev libxt-dev
+> 8ã€æ„å»ºç¼–è¯‘è„šæœ¬
+>> \#è¯­è¨€é€‰é¡¹
+>
+>> export LANG=C
+>
+>> \#Bootstrap JDKçš„å®‰è£…è·¯å¾„
+>
+>> export ALT_BOOTDIR=/home/hadoop/softwares/jdk1.6.0_45
+>
+>> \#å…è®¸è‡ªåŠ¨ä¸‹è½½
+>
+>> export ALLOW_DOWNLOADS=true
+>
+>> \#å¹¶è¡Œç¼–è¯‘çš„çº¿ç¨‹æ•°ï¼Œè®¾ç½®ä¸ºå’ŒCPUå†…æ ¸æ•°é‡ä¸€è‡´å³å¯
+>
+>> export HOTSPOT_BUILD_JOBS=4
+>
+>> export ALT_PARALLEL_COMPILE_JOBS=4
+>
+>> \#æ¯”è¾ƒæœ¬æ¬¡buildå‡ºæ¥çš„é•œåƒä¸å…ˆå‰ç‰ˆæœ¬çš„å·®å¼‚
+>
+>> export SKIP_COMPARE_IMAGES=true
+>
+>> \#ä½¿ç”¨é¢„ç¼–è¯‘å¤´æ–‡ä»¶ï¼Œç¼–è¯‘ä¼šæ›´å¿«
+>
+>> export USE_PRECOMPILED_HEADER=true
+>
+>> \#è¦ç¼–è¯‘çš„å†…å®¹
+>
+>> export BUILD_LANGTOOLS=true
+>
+>> \#export BUILD_JAXP=false
+>
+>> \#export BUILD_JAXWS=false
+>
+>> \#export BUILD_CORBA=false
+>
+>> export BUILD_HOTSPOT=true
+>
+>> export BUILD_JDK=true
+>
+>> \#è¦ç¼–è¯‘çš„ç‰ˆæœ¬
+>
+>> \#export SKIP_DEBUG_BUILD=false
+>
+>> \#export SKIP_FASTDEBUG_BUILD=false
+>
+>> \#export DEBUG_NAME=debug
+>
+>> \#è®¾ç½®ä¸ºfalseå¯ä»¥é¿å¼€javawså’Œæµè§ˆå™¨Javaæ’ä»¶ä¹‹ç±»çš„éƒ¨åˆ†çš„build
+>
+>> BUILD_DEPLOY=false
+>
+>> \#è®¾ç½®ä¸ºfalseå°±ä¸ä¼šbuildå‡ºå®‰è£…åŒ…
+>
+>> BUILD_INSTALL=false
+>
+>> \#ç¼–è¯‘ç»“æœçš„å­˜æ”¾è·¯å¾„
+>
+>> export ALT_OUTPUTDIR=/home/hadoop/myjdk
+>
+>> \#è¿™ä¸¤ä¸ªç¯å¢ƒå˜é‡å¿…é¡»å»æ‰
+>
+>> unset JAVA_HOME
+>
+>> unset CLASSPATH
+>
+>> \#ç¼–è¯‘
+>
+>> make 2 > &1 | tee $ALT_OUTPUTDIR/build.log
 > 
-> 8¡¢¹¹½¨±àÒë½Å±¾
-> \#ÓïÑÔÑ¡Ïî
-> export LANG=C
-\#Bootstrap JDKµÄ°²×°Â·¾¶
-> export ALT_BOOTDIR=/home/hadoop/softwares/jdk1.6.0_45
-> \#ÔÊĞí×Ô¶¯ÏÂÔØ
-> export ALLOW_DOWNLOADS=true
-> \#²¢ĞĞ±àÒëµÄÏß³ÌÊı£¬ÉèÖÃÎªºÍCPUÄÚºËÊıÁ¿Ò»ÖÂ¼´¿É
-> export HOTSPOT_BUILD_JOBS=4
-> export ALT_PARALLEL_COMPILE_JOBS=4
-> \#±È½Ï±¾´Îbuild³öÀ´µÄ¾µÏñÓëÏÈÇ°°æ±¾µÄ²îÒì
-> export SKIP_COMPARE_IMAGES=true
-> \#Ê¹ÓÃÔ¤±àÒëÍ·ÎÄ¼ş£¬±àÒë»á¸ü¿ì
-> export USE_PRECOMPILED_HEADER=true
-> \#Òª±àÒëµÄÄÚÈİ
-> export BUILD_LANGTOOLS=true
-> \#export BUILD_JAXP=false
-> \#export BUILD_JAXWS=false
-> \#export BUILD_CORBA=false
-> export BUILD_HOTSPOT=true
-> export BUILD_JDK=true
-> \#Òª±àÒëµÄ°æ±¾
-> \#export SKIP_DEBUG_BUILD=false
-> \#export SKIP_FASTDEBUG_BUILD=false
-> \#export DEBUG_NAME=debug
-> \#ÉèÖÃÎªfalse¿ÉÒÔ±Ü¿ªjavawsºÍä¯ÀÀÆ÷Java²å¼şÖ®ÀàµÄ²¿·ÖµÄbuild
-> BUILD_DEPLOY=false
-> \#ÉèÖÃÎªfalse¾Í²»»ábuild³ö°²×°°ü
-> BUILD_INSTALL=false
-> \#±àÒë½á¹ûµÄ´æ·ÅÂ·¾¶
-> export ALT_OUTPUTDIR=/home/hadoop/myjdk
-> \#ÕâÁ½¸ö»·¾³±äÁ¿±ØĞëÈ¥µô
-> unset JAVA_HOME
-> unset CLASSPATH
-> \#±àÒë
-> make 2 > &1 | tee $ALT_OUTPUTDIR/build.log
-> 
-> 9¡¢±àÒëÍê³ÉÖ®ºó£¬½øÈë±àÒë½á¹ûµÄj2sdk-imageÄ¿Â¼ÖĞ
-> Ö´ĞĞbin/java -version
+> 9ã€ç¼–è¯‘å®Œæˆä¹‹åï¼Œè¿›å…¥ç¼–è¯‘ç»“æœçš„j2sdk-imageç›®å½•ä¸­
+>> æ‰§è¡Œbin/java -version
 > 
 
-¶ş¡¢¿ÉÄÜ³öÏÖµÄÎÊÌâ£º
+äºŒã€å¯èƒ½å‡ºç°çš„é—®é¢˜ï¼š
 ----------
 
    
-> 1¡¢time is more than 10 years from present
-> ĞŞ¸Äjdk/src/share/classes/java/util/CurrencyData.propertiesÖĞµÄ TR=TRL;2004-12-31-22-00-00;TRYÎª TR=TRL;2014-12-31-22-00-00;TRY
+> 1ã€time is more than 10 years from present
+>> ä¿®æ”¹jdk/src/share/classes/java/util/CurrencyData.propertiesä¸­çš„ TR=TRL;2004-12-31-22-00-00;TRYä¸º TR=TRL;2014-12-31-22-00-00;TRY
 > 
-> 2¡¢__LEAF redifined
-> Ê¹ÓÃpatches/7103224.patchĞŞ¸´bug
+> 2ã€__LEAF redifined
+>> ä½¿ç”¨patches/7103224.patchä¿®å¤bug
 > 
-> 3¡¢ERROR: You do not have access to valid Cups header files.
-> sudo apt-get install libcups2-dev
+> 3ã€ERROR: You do not have access to valid Cups header files.
+>> sudo apt-get install libcups2-dev
 > 
-> 4¡¢ERROR: echo "*** This OS is not supported:" 'uname -a'; exit 1;
-> ×¢ÊÍhostspot/make/linux/MakefileÀïÃæµÄcheckOS
-> check_os_version:
-> \#ifeq (\$(DISABLE_HOTSPOT_OS_VERSION_CHECK)\$(EMPTY_IF_NOT_SUPPORTED),)
-> \# $(QUIETLY) >&2 echo "*** This OS is not supported:" `uname -a`; exit 1;
-> \#endif
+> 4ã€ERROR: echo "\*\*\* This OS is not supported:" 'uname -a'; exit 1;
+>> æ³¨é‡Šhostspot/make/linux/Makefileé‡Œé¢çš„checkOS
+>
+>> check_os_version:
+>
+>> \#ifeq ($(DISABLE_HOTSPOT_OS_VERSION_CHECK)$(EMPTY_IF_NOT_SUPPORTED),)
+>
+>> \# $(QUIETLY) >&2 echo "\*\*\* This OS is not supported:" \`uname -a\`; exit 1;
+>
+>> \#endif
 > 
-> 5¡¢ERROR undefined reference to 'snd_pcm_format_**
-> Ê¹ÓÃpatches/7100369.patchĞŞ¸´bug
+> 5ã€ERROR undefined reference to 'snd_pcm_format_**'
+>> ä½¿ç”¨patches/7100369.patchä¿®å¤bug
 > 
-> 6¡¢Ê¹ÓÃjdk1.6×÷ÎªBootstrap JDK£¬ÓÃJDK1.7¿ÉÄÜ»á³öÏÖÎÊÌâ
+> 6ã€ä½¿ç”¨jdk1.6ä½œä¸ºBootstrap JDKï¼Œç”¨JDK1.7å¯èƒ½ä¼šå‡ºç°é—®é¢˜
 > 
 
-Èı¡¢²Î¿¼×ÊÁÏ
+ä¸‰ã€å‚è€ƒèµ„æ–™
 ------
  
    
-> 1¡¢¡¶ÉîÈëÀí½âJavaĞéÄâ»ú¡·
-   
-> 2¡¢http://cduym.iteye.com/blog/1892416
+> 1ã€ã€Šæ·±å…¥ç†è§£Javaè™šæ‹Ÿæœºã€‹
+> 
+> 2ã€http://cduym.iteye.com/blog/1892416
